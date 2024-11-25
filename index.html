@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机美女图片-欣奇网络</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background: url('background.jpg') no-repeat center center fixed; /* 添加背景图 */
+            background-size: cover;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.6); /* 半透明背景 */
+            border-radius: 10px;
+            padding: 20px;
+            display: inline-block;
+            backdrop-filter: blur(10px); /* 毛玻璃效果 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px; /* 图像圆角 */
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>随机美女图片</h1>
+        <img id="image" src="fetch_image.php?image=1" alt="Image">
+        <br>
+        <button id="nextButton">下一张</button>
+    </div>
+
+    <script>
+        let currentImage = 1;
+
+        document.getElementById('nextButton').addEventListener('click', function() {
+            currentImage++;
+            // Update the image source with the next image number
+            document.getElementById('image').src = 'fetch_image.php?image=' + currentImage;
+        });
+    </script>
+</body>
+</html>
